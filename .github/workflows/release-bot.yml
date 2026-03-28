@@ -2,8 +2,8 @@ name: Komik Release Bot
 
 on:
   schedule:
-    # Ogni lunedì alle 10:00 UTC (uscite del martedì)
-    - cron: '0 10 * * 1'
+    # Ogni lunedì alle 06:00 UTC (uscite del martedì)
+    - cron: '0 06 * * 1'
   workflow_dispatch: # Permette esecuzione manuale
 
 jobs:
