@@ -1,0 +1,29 @@
+name: Komik Release Bot
+
+on:
+  schedule:
+    # Ogni lunedì alle 10:00 UTC (uscite del martedì)
+    - cron: '0 10 * * 1'
+  workflow_dispatch: # Permette esecuzione manuale
+
+jobs:
+  scrape-and-send:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run scraper
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+          TOPIC_ID: ${{ secrets.TOPIC_ID }}
+        run: python scraper.py

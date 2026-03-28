@@ -1,0 +1,8 @@
+services:
+  komik-bot:
+    build: .
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - CHAT_ID=${CHAT_ID}
+      - TOPIC_ID=${TOPIC_ID}
+    restart: unless-stopped

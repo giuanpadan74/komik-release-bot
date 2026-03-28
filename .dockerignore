@@ -1,0 +1,10 @@
+.git
+.github
+__pycache__
+*.pyc
+*.log
+debug_*.html
+last_run.log
+cron.log
+README.md
+install_cron.sh
